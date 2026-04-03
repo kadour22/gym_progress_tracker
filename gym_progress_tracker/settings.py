@@ -33,16 +33,22 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-
-    'allauth',
-    'allauth.account',
     'allauth.socialaccount.providers.google',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
+    # apps
     'apps.Users',
+    'apps.Program'
     'rest_framework'
+
 ]
 
 MIDDLEWARE = [
@@ -131,10 +137,18 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+SITE_ID = 1
+
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',         # built-in (username/password)
+    'allauth.account.auth_backends.AuthenticationBackend',  # allauth (Google etc.)
 ]
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True          # set False if you prefer email-only
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow both
+ACCOUNT_EMAIL_VERIFICATION = 'optional' 
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
