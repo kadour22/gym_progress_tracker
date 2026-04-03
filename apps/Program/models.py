@@ -1,7 +1,7 @@
 from django.db import models 
 from django.contrib.auth.models import User
 
-class Promgram(models.Model) :
+class Program(models.Model) :
 
     class Gender(models.TextChoices) :
         MAN = "man", "man"
@@ -34,5 +34,11 @@ class Promgram(models.Model) :
     training    = models.CharField(max_length=25, choices=DAY_PER_WEEK.choices, default=DAY_PER_WEEK.three_day)
     height      = models.CharField(max_length=3)
     weight      = models.PositiveIntegerField(null=True)
-    
-    
+
+    # dates(Optional)
+    start_date  = models.DateField(null=True)
+    end_date    = models.DateField(null=True)
+
+
+    def __str_(self) :
+        return f"{self.user.username} program"
