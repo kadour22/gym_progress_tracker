@@ -64,14 +64,11 @@ class AI_Service:
         )
 
         raw_text = response.choices[0].message.content.strip()
-
-        # Strip markdown fences if the model adds them anyway
         clean_text = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw_text, flags=re.MULTILINE).strip()
 
         try:
             program_data = json.loads(clean_text)
         except json.JSONDecodeError as e:
-            # Fallback: return raw text with error info for debugging
             raise ValueError(f"AI returned invalid JSON: {e}\nRaw response: {raw_text[:300]}")
 
         return program_data
