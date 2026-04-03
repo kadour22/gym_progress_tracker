@@ -1,0 +1,20 @@
+from ..ai.ai_service import AI_Service
+from ...serializers import ProgramSerializer
+
+from rest_framework import status
+from rest_framework.response import Response
+
+
+class ProgramService(AI_Service):
+
+    def create_program_info(self, data):
+        serializer = ProgramSerializer(data=data)
+        if serializer.is_valid():
+            user_data = serializer.save()
+            program_data = self.generate_gym_program(user_data=user_data)
+            data = {
+                "user_data": ProgramSerializer(user_data).data,
+                "program_data": program_data
+            }
+            return Response(data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
