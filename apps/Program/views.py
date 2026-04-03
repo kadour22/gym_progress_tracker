@@ -1,0 +1,13 @@
+# local imports
+from .services.crud.create import ProgramService
+# rest imports
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+class GenerateProgramView(APIView):
+    def post(self, request):
+        program_service = ProgramService()
+        result = program_service.create_program_info(data=request.data)
+        if "errors" in result:
+            return Response(result["errors"], status=400)
+        return Response(result, status=201)
