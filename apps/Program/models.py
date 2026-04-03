@@ -26,7 +26,7 @@ class Promgram(models.Model) :
         four_day  = "4 day", "4 day"
         five_day  = "5 day", "5 day"
 
-    user        = models.OneToOneField(User, on_delete=models.CASCADE, related_name='program')
+    user        = models.ForeignKey(User, on_delete=models.CASCADE, related_name='program')
     age         = models.PositiveIntegerField()
     gender      = models.CharField(max_length=30, choices=Gender.choices, default=Gender.MAN)
     progam_goal = models.CharField(max_length=30, choices=Goal.choices, default=Goal.LOSS_FAT)
@@ -35,13 +35,4 @@ class Promgram(models.Model) :
     height      = models.CharField(max_length=3)
     weight      = models.PositiveIntegerField(null=True)
     
-    def __str__(self) :
-        return self.username
     
-
-    {
-        "username":"csdlkfwle",
-        "age":25,
-        "height":"177",
-        "weight":87
-    }

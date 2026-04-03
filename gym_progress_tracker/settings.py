@@ -112,6 +112,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-OPENAI_KEY = os.get_env("OPENAI_KEY")
+OPENAI_KEY = os.getenv("OPENAI_KEY")
 OPENAI_AI_URL = os.getenv("OPENAI_AI_URL")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

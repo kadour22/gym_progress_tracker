@@ -1,12 +1,14 @@
+import os
 import json
 import re
 from openai import OpenAI
-from django.conf import settings
+from dotenv import load_dotenv
 
+load_dotenv()
 class AI_Service:
     client = OpenAI(
-        base_url = settings.OPENAI_AI_URL,
-        api_key  = settings.OPENAI_KEY
+        base_url =os.getenv("base_url"),
+        api_key  = os.getenv("api_key")
     )
     def generate_gym_program(self, user_data):
 
