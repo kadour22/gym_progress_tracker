@@ -33,20 +33,13 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'allauth.socialaccount.providers.google',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-
     # apps
     'apps.Users',
-    'apps.Program'
+    'apps.Program',
     'rest_framework'
 
 ]
@@ -60,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # all auth middleware
-    "allauth.account.middleware.AccountMiddleware",
+    # "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'gym_progress_tracker.urls'
