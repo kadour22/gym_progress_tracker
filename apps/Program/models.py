@@ -52,3 +52,8 @@ class WorkoutDayLog(models.Model):
 
     def __str__(self):
         return f"{self.program.user.username} - {self.date} - {self.completed}"
+
+class ProgramData(models.Model) :
+    program = models.ForeignKey(Program, on_delete = models.CASCADE, related_name  = "prgram_data")
+    data = models.JSONField()
+    createdAt = models.DateTimeField(auto_now_add=True)
