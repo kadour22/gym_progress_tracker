@@ -85,7 +85,7 @@ STATIC_URL = 'static/'
 OPENAI_KEY = os.getenv("OPENAI_KEY")
 OPENAI_AI_URL = os.getenv("OPENAI_AI_URL")
 SECRET_KEY = os.getenv("SECRET_KEY")
-DEBUG = os.getenv("DEBUG") == "True"
+DEBUG = True
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

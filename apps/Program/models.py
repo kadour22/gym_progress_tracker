@@ -39,6 +39,16 @@ class Program(models.Model) :
     start_date  = models.DateField(null=True)
     end_date    = models.DateField(null=True)
 
-
     def __str_(self) :
         return f"{self.user.username} program"
+
+class WorkoutDayLog(models.Model):
+    program   = models.ForeignKey(Program, on_delete=models.CASCADE, related_name="logs")
+    date      = models.DateField()
+    completed = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('program', 'date')
+
+    def __str__(self):
+        return f"{self.program.user.username} - {self.date} - {self.completed}"

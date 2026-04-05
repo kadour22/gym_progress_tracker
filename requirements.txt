@@ -3,7 +3,7 @@ anyio==4.13.0
 asgiref==3.11.1
 certifi==2026.2.25
 distro==1.9.0
-Django==6.0.3
+Django==4.2.16
 django-allauth==65.15.1
 djangorestframework==3.17.1
 h11==0.16.0
