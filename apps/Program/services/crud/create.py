@@ -4,9 +4,9 @@ from rest_framework.response import Response
 from django.db import transaction
 
 class ProgramService(AI_Service):
+   
     @transaction.atomic()
     def create_program_info(self, data,user):
-
         serializer = ProgramSerializer(data=data)
         if serializer.is_valid():
             user_data = serializer.save(user=user)
