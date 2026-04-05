@@ -1,10 +1,10 @@
 from ..ai.ai_service import AI_Service
 from ...serializers import ProgramSerializer
 from rest_framework.response import Response
-
+from django.db import transaction
 
 class ProgramService(AI_Service):
-
+    @transaction.atomic()
     def create_program_info(self, data,user):
 
         serializer = ProgramSerializer(data=data)
