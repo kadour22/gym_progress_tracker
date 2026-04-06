@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Program
+from .models import Program, ProgramData
 
 class ProgramSerializer(serializers.ModelSerializer) :
     class Meta :
@@ -17,3 +17,10 @@ class ProgramSerializer(serializers.ModelSerializer) :
         ]
 
         read_only_fields = ["user"]
+
+class ProgramDataSerializer(serializers.ModelSerializer) :
+    class Meta :
+        model  = ProgramData
+        fields = [
+            "program","data","creratedAt"
+        ]
