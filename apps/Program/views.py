@@ -1,6 +1,7 @@
 # local imports
 from .services.crud.create import ProgramService
 from .services.crud.delete import delete_program
+from .services.crud.list import ProgramDataService
 # rest imports
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -21,3 +22,15 @@ class DeleteProgramView(APIView) :
     permission_classes = [permissions.IsAuthenticated]
     def delete(self,program_id) :
         return delete_program(program_id=program_id)
+
+class ProgramDataView(APIView) :
+
+    def __init__(self, *args, **kwargs) :
+        super().__init__(*args, **kwargs)
+        self.program_data_service = ProgramDataService()
+    
+    def get(self, request, prog_id=None) :
+        user = request.user
+        if not  prog_id:
+            return self.program_data_service.get_program_by_id(prog_id=prog_id)
+        return self.program_data_service.list_all_program_data(user=user)

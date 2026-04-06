@@ -14,3 +14,4 @@ class ProgramDataService:
         program = get_object_or_404(ProgramData, id = prog_id)
         serializer = ProgramDataSerializer(program,many=False)
         return ({ "data":serializer.data  })
+    
