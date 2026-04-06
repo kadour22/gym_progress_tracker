@@ -1,5 +1,6 @@
 # local imports
 from .services.crud.create import ProgramService
+from .services.crud.delete import delete_program
 # rest imports
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -15,3 +16,8 @@ class GenerateProgramView(APIView):
         if "errors" in result:
             return Response(result["errors"], status=400)
         return Response(result, status=201)
+
+class DeleteProgramView(APIView) :
+    permission_classes = [permissions.IsAuthenticated]
+    def delete(self,program_id) :
+        return delete_program(program_id=program_id)
