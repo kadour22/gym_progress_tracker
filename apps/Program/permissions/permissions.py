@@ -6,5 +6,5 @@ class IsProgramOwner(BasePermission) :
     """
     message = "next u try to access other users data ur account with closed" 
     def has_object_permission(self, request, view, obj) :
-        return request.user == obj.user
+        return request.user == obj.user and request.user.is_authenticated
     
