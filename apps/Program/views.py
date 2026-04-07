@@ -7,7 +7,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import permissions
 from django.db.transaction import atomic
-
+from .permissions.permissions import IsProgramOwner
+from .serializers import ProgramDataSerializer,ProgramSerializer
+from rest_framework.response import Response
 
 class GenerateProgramView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -28,9 +30,23 @@ class ProgramDataView(APIView) :
     def __init__(self, *args, **kwargs) :
         super().__init__(*args, **kwargs)
         self.program_data_service = ProgramDataService()
+    def get(self, request) :
+        program = self.program_data_service.list_all_program_data(user=request.user)
+        serializer = ProgramDataSerializer(program,many=True)
+        return Response(serializer.data) 
     
-    def get(self, request, prog_id=None) :
-        user = request.user
-        if not  prog_id:
-            return self.program_data_service.get_program_by_id(prog_id=prog_id)
-        return self.program_data_service.list_all_program_data(user=user)
+class SingleProgramData(APIView):
+    permission_classes = [IsProgramOwner]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.program_data_service = ProgramDataService()
+
+    def get(self, request, program_id):
+        program = self.program_data_service.get_program_by_id(program_id)
+
+        # ✅ Now this works (program is a model instance)
+        self.check_object_permissions(request, program)
+
+        serializer = ProgramDataSerializer(program)
+        return Response(serializer.data)

@@ -69,7 +69,7 @@ class AI_Service:
         try:
             program_data = json.loads(clean_text)
 
-            prog_data = ProgramData.objects.create(program=user_data, data=program_data)
+            prog_data = ProgramData.objects.create(program=user_data, data=program_data,user=user_data.user)
 
         except json.JSONDecodeError as e:
             raise ValueError(f"AI returned invalid JSON: {e}\nRaw response: {raw_text[:300]}")

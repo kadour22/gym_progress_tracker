@@ -28,5 +28,5 @@ class ProgramDataSerializer(serializers.ModelSerializer) :
     class Meta :
         model  = ProgramData
         fields = [
-            "program","data","createdAt"
+            "user","program","data","createdAt"
         ]

@@ -35,6 +35,7 @@ class Program(models.Model) :
     height      = models.CharField(max_length=3)
     weight      = models.PositiveIntegerField(null=True)
 
+       
 
     # dates(Optional)
     start_date  = models.DateField(null=True)
@@ -55,6 +56,7 @@ class WorkoutDayLog(models.Model):
         return f"{self.program.user.username} - {self.date} - {self.completed}"
 
 class ProgramData(models.Model) :
+    user      = models.ForeignKey(User, on_delete=models.CASCADE, related_name="program_data",null=True)
     program   = models.ForeignKey(Program, on_delete = models.CASCADE, related_name  = "prgram_data")
     data      = models.JSONField()
     createdAt = models.DateTimeField(auto_now_add=True)
