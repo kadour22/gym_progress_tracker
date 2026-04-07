@@ -6,12 +6,7 @@ class UserService:
         program_count = Program.objects.filter(user=user).count()
         return program_count
     
-    
+    def get_user_program_data(self,user) :
+        program_data = ProgramData.objects.filter(user=user)
+        return program_data
 
-"""
-user_view : to filter and count programs and programs data
-program_data[] => ProgramData
-program[] =>  Program
-
-NB: use preftech_related
-"""
