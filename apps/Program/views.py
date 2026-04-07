@@ -29,8 +29,8 @@ class ProgramDataView(APIView) :
         super().__init__(*args, **kwargs)
         self.program_data_service = ProgramDataService()
     
-    def get(self, request, prog_id=None) :
+    def get(self, request) :
         user = request.user
-        if not  prog_id:
-            return self.program_data_service.get_program_by_id(prog_id=prog_id)
+        # if not  prog_id:
+        #     return self.program_data_service.get_program_by_id(prog_id=prog_id)
         return self.program_data_service.list_all_program_data(user=user)

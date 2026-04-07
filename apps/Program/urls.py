@@ -6,6 +6,6 @@ urlpatterns = [
     path("program/<int:program_id>/", views.DeleteProgramView.as_view()),
 
     path("program-data/", views.ProgramDataView.as_view()),
-    path("program-data/program/<int:prog_id>/", views.ProgramDataView.as_view()),
+    # path("program-data/program/<int:prog_id>/", views.ProgramDataView.as_view()),
     
 ]

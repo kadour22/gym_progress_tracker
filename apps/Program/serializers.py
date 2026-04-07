@@ -18,9 +18,15 @@ class ProgramSerializer(serializers.ModelSerializer) :
 
         read_only_fields = ["user"]
 
+class program_serializer(serializers.ModelSerializer) :
+    class Meta :
+        model  = Program
+        fields = ["progam_goal"] 
+
 class ProgramDataSerializer(serializers.ModelSerializer) :
+    program = program_serializer(read_only=True)
     class Meta :
         model  = ProgramData
         fields = [
-            "program","data","creratedAt"
+            "program","data","createdAt"
         ]
