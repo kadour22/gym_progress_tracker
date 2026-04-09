@@ -2,7 +2,7 @@ from ..ai.ai_service import AI_Service
 from ...serializers import ProgramSerializer
 from rest_framework.response import Response
 from django.db import transaction
-
+from ...models import Program
 class ProgramService(AI_Service):
    
     @transaction.atomic()
@@ -18,3 +18,4 @@ class ProgramService(AI_Service):
         return ({
             "error":serializer.errors
         })
+    

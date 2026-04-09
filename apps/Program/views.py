@@ -44,8 +44,6 @@ class SingleProgramData(APIView):
 
     def get(self, request, program_id):
         program = self.program_data_service.get_program_by_id(program_id)
-
         self.check_object_permissions(request, program)
-
         serializer = ProgramDataSerializer(program)
         return Response(serializer.data)
