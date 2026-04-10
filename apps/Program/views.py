@@ -19,6 +19,7 @@ class GenerateProgramView(APIView):
         if "errors" in result:
             return Response(result["errors"], status=400)
         return Response(result, status=201)
+    
 
 class DeleteProgramView(APIView) :
     permission_classes = [permissions.IsAuthenticated]
