@@ -5,15 +5,17 @@ class ProgramSerializer(serializers.ModelSerializer) :
     class Meta :
         model  = Program
         fields = [
+
             "id",
-            "user",
             "age",
+            "user",
             "gender",
             "progam_goal",
             "durations",
             "training",
             "height",
             "weight"
+
         ]
 
         read_only_fields = ["user"]
@@ -28,5 +30,10 @@ class ProgramDataSerializer(serializers.ModelSerializer) :
     class Meta :
         model  = ProgramData
         fields = [
-            "user","program","data","createdAt"
+
+            "user",
+            "program",
+            "data",
+            "createdAt"
+
         ]
