@@ -5,6 +5,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from ...models import ProgramData
 load_dotenv()
+
 class AI_Service:
     client = OpenAI(
         base_url =os.getenv("base_url"),

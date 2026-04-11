@@ -61,4 +61,7 @@ class ProgramData(models.Model) :
     data      = models.JSONField()
     createdAt = models.DateTimeField(auto_now_add=True)
 
+
+    def __str__(self):
+        return self.createdAt
     
