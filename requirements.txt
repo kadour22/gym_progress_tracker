@@ -8,12 +8,14 @@ django-allauth==65.15.1
 django-cors-headers==4.9.0
 djangorestframework==3.17.1
 djangorestframework_simplejwt==5.5.1
+gunicorn==25.3.0
 h11==0.16.0
 httpcore==1.0.9
 httpx==0.28.1
 idna==3.11
 jiter==0.13.0
 openai==2.30.0
+packaging==26.0
 pydantic==2.12.5
 pydantic_core==2.41.5
 PyJWT==2.12.1
