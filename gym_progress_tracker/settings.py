@@ -88,8 +88,13 @@ STATIC_URL = 'static/'
 OPENAI_KEY = os.getenv("OPENAI_KEY")
 OPENAI_AI_URL = os.getenv("OPENAI_AI_URL")
 SECRET_KEY = os.getenv("SECRET_KEY")
+print(SECRET_KEY)
 DEBUG = os.getenv("DEBUG")
-CORS_ALLOWED_ORIGINS=os.getenv("CORS_ALLOWED_ORIGINS")
+CORS_ALLOWED_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
+    if origin
+]
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
