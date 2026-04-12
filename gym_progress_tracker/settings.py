@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     # apps
     'apps.Users',
     'apps.Program',
+    'corsheaders',
     'rest_framework'
 
 ]
@@ -24,13 +25,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # all auth middleware
-    # "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'gym_progress_tracker.urls'
@@ -88,8 +88,8 @@ STATIC_URL = 'static/'
 OPENAI_KEY = os.getenv("OPENAI_KEY")
 OPENAI_AI_URL = os.getenv("OPENAI_AI_URL")
 SECRET_KEY = os.getenv("SECRET_KEY")
-DEBUG = True
-print(DEBUG)
+DEBUG = os.getenv("DEBUG")
+CORS_ALLOWED_ORIGINS=os.getenv("CORS_ALLOWED_ORIGINS")
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
