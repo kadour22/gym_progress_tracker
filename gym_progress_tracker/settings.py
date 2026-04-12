@@ -93,7 +93,7 @@ DEBUG = os.getenv("DEBUG")
 CORS_ALLOWED_ORIGINS = [
     origin.strip()
     for origin in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
-    if origin
+    if origin 
 ]
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
