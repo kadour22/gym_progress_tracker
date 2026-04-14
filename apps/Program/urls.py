@@ -7,5 +7,5 @@ urlpatterns = [
 
     path("program-data/", views.ProgramDataView.as_view()),
     path("program-data/program/<int:program_id>/", views.SingleProgramData.as_view()),
-    
+    path("dashboard/", views.DashboardView.as_view())
 ]
