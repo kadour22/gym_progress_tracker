@@ -37,3 +37,9 @@ class ProgramDataSerializer(serializers.ModelSerializer) :
             "createdAt"
 
         ]
+class DashboardSerializer(serializers.Serializer):
+    programs = serializers.IntegerField()
+    programs_data = serializers.IntegerField()
+    consistency = serializers.IntegerField()
+    progress = serializers.IntegerField()
+    activity = serializers.IntegerField()
