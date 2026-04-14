@@ -19,4 +19,4 @@ def calculate_consistency(program):
     if expected_workouts == 0:
         return 0
 
-    return int((completed_workouts / expected_workouts) * 100)
+    return int((completed_workouts / expected_workouts) * 100) 
