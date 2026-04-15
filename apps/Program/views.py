@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from .utils.compute_consistency import calculate_consistency
 from .utils.program_progress import calculate_data_activity,calculate_program_progress
 from .models import Program,ProgramData
+
 class GenerateProgramView(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def post(self, request):
@@ -22,7 +23,6 @@ class GenerateProgramView(APIView):
             return Response(result["errors"], status=400)
         return Response(result, status=201)
     
-
 class DeleteProgramView(APIView) :
     permission_classes = [permissions.IsAuthenticated]
     def delete(self,program_id) :
