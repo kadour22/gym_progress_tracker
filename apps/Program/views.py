@@ -29,7 +29,7 @@ class DeleteProgramView(APIView) :
         return delete_program(program_id=program_id)
 
 class ProgramDataView(APIView) :
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
     def __init__(self, *args, **kwargs) :
         super().__init__(*args, **kwargs)
         self.program_data_service = ProgramDataService()
