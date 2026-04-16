@@ -96,7 +96,7 @@ OPENAI_KEY = os.getenv("OPENAI_KEY")
 OPENAI_AI_URL = os.getenv("OPENAI_AI_URL")
 SECRET_KEY = os.getenv("SECRET_KEY")
 print(SECRET_KEY)
-DEBUG = True
+DEBUG = False
 CORS_ALLOWED_ORIGINS = [
     origin.strip()
     for origin in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
