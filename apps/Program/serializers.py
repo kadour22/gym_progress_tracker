@@ -18,7 +18,7 @@ class ProgramSerializer(serializers.ModelSerializer) :
 
         ]
 
-        read_only_fields = ["user"]
+        read_only_fields = ["user","id"]
 
 class program_serializer(serializers.ModelSerializer) :
     class Meta :
