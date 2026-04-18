@@ -10,7 +10,7 @@ class UserViewService(APIView):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.user_service = UserService()
-    
+
     def get(self, request):
         service = self.user_service
 
@@ -24,3 +24,5 @@ class UserViewService(APIView):
 
         serializer = UserSerializer(data)
         return Response(serializer.data)
+    
+    
