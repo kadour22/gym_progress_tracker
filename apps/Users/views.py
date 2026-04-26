@@ -13,7 +13,6 @@ class UserViewService(APIView):
 
     def get(self, request):
         service = self.user_service
-
         programs = service.get_user_programs(request.user)
         programs_data = service.get_user_program_data(request.user).count()
 
